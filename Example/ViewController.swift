@@ -26,8 +26,13 @@ class ViewController: UIViewController {
         return .lightContent
     }
     
+    @IBAction func setCustomHandleToBlueTapped(_ sender: UIButton) {
+        colorPicker.updateHandle(customHandle, color: .systemBlue)
+    }
+    
     // MARK: - Private
     private var homeHandle: ChromaColorHandle! // reference to home handle
+    private var customHandle: ChromaColorHandle! // reference to custom handle
     
     private func setupColorPicker() {
         colorPicker.delegate = self
@@ -75,7 +80,7 @@ class ViewController: UIViewController {
         colorPicker.addHandle(at: peachColor)
         
         // 3. Create a custom handle and add to picker
-        let customHandle = ChromaColorHandle()
+        customHandle = ChromaColorHandle()
         customHandle.color = UIColor.purple
         colorPicker.addHandle(customHandle)
     }
